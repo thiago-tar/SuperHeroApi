@@ -15,7 +15,7 @@ namespace SuperHero.API.DTOs
         public string LastName { get; set; }
         [Required]
         public int CityId { get; set; }
-        [Required]
+
         public City City { get; set; }
     }
 }

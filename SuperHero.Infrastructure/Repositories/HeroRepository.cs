@@ -3,7 +3,7 @@ using SuperHero.Dominio.Models;
 
 namespace SuperHero.Infrastructure.Repositories
 {
-    public class HeroRepository : Repository<City>, IHeroRepository
+    public class HeroRepository : Repository<Hero>, IHeroRepository
     {
         public HeroRepository(AppDbContext context) : base(context)
         {

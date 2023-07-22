@@ -3,7 +3,7 @@ using SuperHero.Dominio.Models;
 
 namespace SuperHero.Infrastructure.EFConfigurations
 {
-    internal class HeroConfiguration : IEntityTypeConfiguration<Hero>
+    public class HeroConfiguration : IEntityTypeConfiguration<Hero>
     {
         public void Configure(EntityTypeBuilder<Hero> builder)
         {
@@ -12,7 +12,7 @@ namespace SuperHero.Infrastructure.EFConfigurations
 
         private void ConfigureHeroTable(EntityTypeBuilder<Hero> builder)
         {
-            builder.ToTable("Menu");
+            builder.ToTable("Hero");
             builder.HasKey(x => x.Id);
 
             builder.Property(x => x.Name)
