@@ -1,5 +1,4 @@
-using SuperHero.Dominio.DI;
-using SuperHero.IOC;
+using SuperHero.API;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -19,9 +18,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-Dependencies.Solver = new Solver();
-
-var a = Dependencies.Hero.Test();
+app.DependencyInjectionAutoFac();
 
 app.UseHttpsRedirection();
 

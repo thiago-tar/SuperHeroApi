@@ -3,11 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33110.190
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SuperHero.IOC", "SuperHero.IOC\SuperHero.IOC.csproj", "{70B9677D-B976-4764-90B2-5ACC0DEA9F5C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SuperHero.IOC", "SuperHero.IOC\SuperHero.IOC.csproj", "{70B9677D-B976-4764-90B2-5ACC0DEA9F5C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SuperHero.Dominio", "SuperHero.Dominio\SuperHero.Dominio.csproj", "{D0806C37-827C-4D9B-94EF-E8FD7ED9E6F5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SuperHero.Dominio", "SuperHero.Dominio\SuperHero.Dominio.csproj", "{D0806C37-827C-4D9B-94EF-E8FD7ED9E6F5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SuperHero.API", "SuperHero.API\SuperHero.API.csproj", "{92924912-5F5C-47E4-92FE-EA64A12ADDEE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SuperHero.API", "SuperHero.API\SuperHero.API.csproj", "{92924912-5F5C-47E4-92FE-EA64A12ADDEE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SuperHero.Infrastructure", "SuperHero.Infrastructure\SuperHero.Infrastructure.csproj", "{AAB4BA37-16EB-44B6-BE55-0DFAFB781AC2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{92924912-5F5C-47E4-92FE-EA64A12ADDEE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{92924912-5F5C-47E4-92FE-EA64A12ADDEE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{92924912-5F5C-47E4-92FE-EA64A12ADDEE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AAB4BA37-16EB-44B6-BE55-0DFAFB781AC2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AAB4BA37-16EB-44B6-BE55-0DFAFB781AC2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AAB4BA37-16EB-44B6-BE55-0DFAFB781AC2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AAB4BA37-16EB-44B6-BE55-0DFAFB781AC2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

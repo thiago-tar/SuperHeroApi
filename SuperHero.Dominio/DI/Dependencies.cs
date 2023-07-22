@@ -1,9 +1,4 @@
-﻿using SuperHero.Dominio.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using SuperHero.Dominio.Interfaces;
 
 namespace SuperHero.Dominio.DI
 {
@@ -33,7 +28,9 @@ namespace SuperHero.Dominio.DI
             }
         }
 
-        public static IHero Hero { get => Solver.Solve<IHero>(); }
+        public static IHeroRepository HeroRepository { get => Solver.Solve<IHeroRepository>(); }
 
-        }
+        public static IUnitOfWork UnitOfWork { get => Solver.Solve<IUnitOfWork>(); }
+
+    }
 }

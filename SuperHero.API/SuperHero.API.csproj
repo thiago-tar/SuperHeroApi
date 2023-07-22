@@ -16,4 +16,8 @@
     <ProjectReference Include="..\SuperHero.IOC\SuperHero.IOC.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Models\" />
+  </ItemGroup>
+
 </Project>
