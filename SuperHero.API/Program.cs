@@ -1,4 +1,7 @@
+using Microsoft.EntityFrameworkCore;
 using SuperHero.API;
+using SuperHero.Infrastructure;
+using System.Buffers;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,6 +12,9 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AutoMapper();
+builder.Services.AddDbContext<AppDbContext>(options =>
+                                options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultSQLConnection")));
+
 
 var app = builder.Build();
 

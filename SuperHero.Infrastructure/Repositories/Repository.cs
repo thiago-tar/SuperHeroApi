@@ -24,9 +24,16 @@ namespace SuperHero.Infrastructure.Repositories
             return await _context.Set<TEntity>().ToListAsync();
         }
 
+        public virtual async Task<IEnumerable<TEntity>> GetAllAsync<TProperty>(Expression<Func<TEntity, TProperty>> include)
+        {
+            _context.ChangeTracker.LazyLoadingEnabled = false;
+            return await _context.Set<TEntity>().Include(include).ToListAsync();
+        }
+
+
         public virtual async Task<TEntity> GetByIdAsync(int id)
         {
-            return await _context.Set<TEntity>().FirstAsync(x => x.Id == id);
+            return await _context.Set<TEntity>().FirstOrDefaultAsync(x => x.Id == id);
         }
 
         public virtual async Task<IEnumerable<TEntity>> Search(Expression<Func<TEntity, bool>> predicate)
@@ -34,9 +41,18 @@ namespace SuperHero.Infrastructure.Repositories
             return await _context.Set<TEntity>().Where(predicate).ToListAsync();
         }
 
-        public virtual async Task Save(TEntity entity)
+        public virtual async Task<TEntity> Save(TEntity entity)
         {
-            await _context.Set<TEntity>().AddAsync(entity);
+            var obj = await _context.Set<TEntity>().AddAsync(entity);
+            await _context.SaveChangesAsync();
+            return obj.Entity;
+        }
+
+        public virtual async Task Delete(TEntity entity)
+        {
+            _context.Set<TEntity>().Attach(entity);
+            _context.Set<TEntity>().Remove(entity);
+            await _context.SaveChangesAsync();
         }
     }
 }

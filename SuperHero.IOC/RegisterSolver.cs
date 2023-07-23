@@ -1,10 +1,9 @@
-﻿using SuperHero.Dominio.Interfaces;
+﻿using Autofac;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using SuperHero.Dominio.Interfaces;
+using SuperHero.Infrastructure;
 using SuperHero.Infrastructure.Repositories;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SuperHero.IOC
 {
@@ -20,7 +19,16 @@ namespace SuperHero.IOC
         private void RegisterRepositories()
         {
             Scoped<IHeroRepository, HeroRepository>();
+            Scoped<ICityRepository, CityRepository>();
             Scoped<IUnitOfWork, UnitOfWork>();
+        }
+
+        private void RegisterEntityFramework()
+        {
+            var optionsBuilder = new DbContextOptionsBuilder<AppDbContext>();
+            optionsBuilder.UseSqlServer(_config.GetConnectionString("DefaultSQLConnection"));
+            _builder.RegisterInstance(optionsBuilder.Options);
+            _builder.RegisterType<AppDbContext>().InstancePerLifetimeScope();
         }
     }
 }

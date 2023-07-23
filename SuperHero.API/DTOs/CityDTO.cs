@@ -1,5 +1,6 @@
 ﻿using SuperHero.Dominio.Models;
 using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 
 namespace SuperHero.API.DTOs
 {
@@ -10,6 +11,6 @@ namespace SuperHero.API.DTOs
         [Required]
         public string Name { get; set; }
 
-        public IEnumerable<Hero> Heros { get; set; }
+        public IEnumerable<Hero>? Heros { get; set; }
     }
 }

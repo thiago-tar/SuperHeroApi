@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using SuperHero.API.DTOs;
 using SuperHero.Dominio.DI;
+using SuperHero.Dominio.Models;
 
 namespace SuperHero.API.Controllers
 {
@@ -47,6 +48,28 @@ namespace SuperHero.API.Controllers
             {
                 return BadRequest();
             }
+        }
+
+        [HttpPost]
+        public async Task<ActionResult<HeroDTO>> Post([FromBody] HeroDTO heroDTO)
+        {
+            var hero = mapper.Map<Hero>(heroDTO);
+            hero = await Dependencies.HeroRepository.Save(hero);
+            heroDTO = mapper.Map<HeroDTO>(hero);
+                
+            return Ok(heroDTO);
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<ActionResult> Delete(int id)
+        {
+            var entitidade = await Dependencies.HeroRepository.GetByIdAsync(id);
+            if (entitidade == null) return NotFound($"There is no Hero with the id {id}");
+
+            await Dependencies.HeroRepository.Delete(entitidade);
+
+            return NoContent();
+
         }
 
     }

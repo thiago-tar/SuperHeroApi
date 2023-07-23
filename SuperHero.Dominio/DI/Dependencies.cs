@@ -32,5 +32,7 @@ namespace SuperHero.Dominio.DI
 
         public static IUnitOfWork UnitOfWork { get => Solver.Solve<IUnitOfWork>(); }
 
+        public static ICityRepository CityRepository { get => Solver.Solve<ICityRepository>(); }
+
     }
 }

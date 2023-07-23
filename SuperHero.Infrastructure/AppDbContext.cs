@@ -18,7 +18,6 @@ namespace SuperHero.Infrastructure
             modelBuilder.ApplyConfiguration(new HeroConfiguration())
                         .ApplyConfiguration(new CityConfiguration());
 
-
         }
 
 

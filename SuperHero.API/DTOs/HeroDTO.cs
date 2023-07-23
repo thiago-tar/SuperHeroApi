@@ -1,6 +1,9 @@
-﻿using SuperHero.Dominio.Models;
+﻿using AutoMapper.Configuration.Annotations;
+using SuperHero.Dominio.Models;
 using System.ComponentModel.DataAnnotations;
 using System.Data;
+using System.Runtime.InteropServices;
+using System.Text.Json.Serialization;
 
 namespace SuperHero.API.DTOs
 {
@@ -16,6 +19,6 @@ namespace SuperHero.API.DTOs
         [Required]
         public int CityId { get; set; }
 
-        public City City { get; set; }
+        public City? City { get; set; }
     }
 }

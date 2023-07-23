@@ -1,10 +1,6 @@
 ﻿using Autofac;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using SuperHero.Dominio.DI;
-using SuperHero.Dominio.Interfaces;
-using SuperHero.Infrastructure;
-using SuperHero.Infrastructure.Repositories;
 
 namespace SuperHero.IOC
 {
@@ -22,15 +18,7 @@ namespace SuperHero.IOC
             _container = _builder.Build();
         }
 
-        private void RegisterEntityFramework()
-        {
-            var options = _builder.Register(x =>
-            {
-                var optionsBuilder = new DbContextOptionsBuilder<AppDbContext>();
-                optionsBuilder.UseSqlServer(_config.GetConnectionString("DefaultSQLConnection"));
-                return new AppDbContext(optionsBuilder.Options);
-            });
-        }
+        
 
         public T Solve<T>() => _container.Resolve<T>();
 

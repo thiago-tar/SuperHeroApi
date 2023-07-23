@@ -14,8 +14,12 @@ namespace SuperHero.Dominio.Interfaces
 
         Task<IEnumerable<TEntity>> GetAllAsync();
 
-        Task Save(TEntity entity);
+        Task<IEnumerable<TEntity>> GetAllAsync<TProperty>(Expression<Func<TEntity, TProperty>>? include = null);
+
+        Task<TEntity> Save(TEntity entity);
 
         Task<IEnumerable<TEntity>> Search(Expression<Func<TEntity, bool>> predicate);
+
+        Task Delete(TEntity entity);
     }
 }
