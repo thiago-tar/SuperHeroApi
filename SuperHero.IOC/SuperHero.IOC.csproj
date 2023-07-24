@@ -18,6 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\SuperHero.Aplication\SuperHero.Aplication.csproj" />
     <ProjectReference Include="..\SuperHero.Dominio\SuperHero.Dominio.csproj" />
     <ProjectReference Include="..\SuperHero.Infrastructure\SuperHero.Infrastructure.csproj" />
   </ItemGroup>

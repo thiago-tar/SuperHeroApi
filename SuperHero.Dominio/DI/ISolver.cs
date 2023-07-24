@@ -8,6 +8,6 @@ namespace SuperHero.Dominio.DI
 {
     public interface ISolver
     {
-        T Solve<T>();
+        T Resolve<T>();
     }
 }

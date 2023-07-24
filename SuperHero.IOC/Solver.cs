@@ -20,7 +20,7 @@ namespace SuperHero.IOC
 
         
 
-        public T Solve<T>() => _container.Resolve<T>();
+        public T Resolve<T>() => _container.Resolve<T>();
 
         private void Singleton<T>(T instance) where T : class
         {

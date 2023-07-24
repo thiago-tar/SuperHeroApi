@@ -1,4 +1,6 @@
-﻿using SuperHero.Dominio.Interfaces;
+﻿using SuperHero.Dominio.Authentication.Interfaces;
+using SuperHero.Dominio.Interfaces;
+using SuperHero.Dominio.Interfaces.Services;
 
 namespace SuperHero.Dominio.DI
 {
@@ -28,11 +30,15 @@ namespace SuperHero.Dominio.DI
             }
         }
 
-        public static IHeroRepository HeroRepository { get => Solver.Solve<IHeroRepository>(); }
+        public static IHeroRepository HeroRepository { get => Solver.Resolve<IHeroRepository>(); }
 
-        public static IUnitOfWork UnitOfWork { get => Solver.Solve<IUnitOfWork>(); }
+        public static IUnitOfWork UnitOfWork { get => Solver.Resolve<IUnitOfWork>(); }
 
-        public static ICityRepository CityRepository { get => Solver.Solve<ICityRepository>(); }
+        public static ICityRepository CityRepository { get => Solver.Resolve<ICityRepository>(); }
+
+        public static IAuthenticationService AuthenticationService { get => Solver.Resolve<IAuthenticationService>(); }
+
+        public static IJwtTokenGenerator JwtTokenGenerator { get => Solver.Resolve<IJwtTokenGenerator>(); }
 
     }
 }
